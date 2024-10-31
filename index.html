@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.:: Opine PRO :..</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #FFFFFF, #FFFFFF);
+            color: #303133;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 190px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-top: 10px;
+        }
+
+        .progress-bar {
+            background: #2c2c54;
+            border-radius: 25px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress {
+            background: #06B32E;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: black;
+            font-size: 1.5em;
+            border-radius: 25px 0 0 25px;
+            width: 0;
+            transition: width 0.3s ease;
+        }
+
+        .message, .note, .faq {
+            margin-bottom: 20px;
+        }
+
+        .price {
+            color: #32B603;
+            font-weight: bold;
+        }
+
+        .pay-button {
+            background: #06B32E;
+            color: black;
+            border: none;
+            padding: 15px 0px;
+            font-size: 1em; /* Decreased font size */
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .pay-button:hover {
+            background: #004418;
+        }
+
+        .faq h2 {
+            font-size: 1.5em;
+            margin: 40px 0 10px; /* Added margin-top */
+        }
+
+        .faq p {
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .warning {
+            color: #cac2c5;
+        }
+
+        .no-refund {
+            color: #ff0000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="images/a.png" alt="Love Pix Logo" class="logo">
+            <h1>PARABÉNS</h1>
+        </div>
+        <div class="progress-bar">
+            <div class="progress" id="progress" style="width: 11%;">11%</div>
+        </div>
+        <p class="message">
+            Sua vaga está garantida! Para acessar o aplicativo, é necessário pagar uma taxa de transferência de <span class="price">R$24,90</span> que nos ajuda a manter nossos servidores ativos.
+        </p>
+        <p class="note">
+            Após o pagamento, o link para download será enviado automaticamente via Whatsapp e e-mail.
+        </p>
+        <button class="pay-button" onclick="redirectToGoogle()">PAGAR A TAXA E ACESSAR O APP</button>
+        <div class="faq">
+            <h2>Dúvidas Frequentes</h2>
+            <p>
+                <strong>Por que devo pagar essa taxa?</strong> Essa taxa é necessária após a transferência de saldo para cobrir os custos operacionais e a manutenção de nossos servidores.
+            </p>
+            <p class="warning">
+                Caso não consiga pagar a taxa hoje, você perderá sua vaga. <span class="no-refund">NÃO Reembolsável</span>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function redirectToGoogle() {
+            window.location.href = 'https://go.tribopay.com.br/ozpts';
+        }
+
+        let progressElement = document.getElementById('progress');
+        let progress = 1;
+
+        function updateProgress() {
+            if (progress <= 94) {
+                progressElement.style.width = progress + '%';
+                progressElement.textContent = progress + '%';
+                progress++;
+                setTimeout(updateProgress, 50);
+            }
+        }
+
+        updateProgress();
+    </script>
+
+
+</body></html>
